@@ -1,0 +1,29 @@
+.image-container .checkbox {
+  display: none;
+}
+
+/* Show checkboxes for selected images */
+.selected .checkbox {
+  display: block;
+
+  visibility: visible;
+}
+
+label {
+  position: relative;
+}
+.checkbox:hover{
+  display: block;
+}
+.checkbox {
+  position: absolute;
+  top: 20px;
+  margin-left: 20px;
+}
+
+
+.selected .checkbox .image-container {
+  background: #000;
+  color: #000;
+  opacity: 0.5;
+}
