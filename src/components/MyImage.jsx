@@ -1,4 +1,3 @@
-
 import "./MyImage.css";
 import { useEffect, useState } from "react";
 import Sortable from "sortablejs";
@@ -12,7 +11,6 @@ import image7 from "../../public/images/image-5.webp";
 import image8 from "../../public/images/image-6.webp";
 import image9 from "../../public/images/image-7.webp";
 import DeleteButton from "./DeleteButton";
-
 
 const MyImage = () => {
   const [selectedImages, setSelectedImages] = useState([]);
@@ -32,8 +30,8 @@ const MyImage = () => {
     const dragAndDropItems = document.getElementById("gallery");
     const sortable = new Sortable(dragAndDropItems, {
       animation: 350,
-      chosenClass: "team-member-chosen",
-      dragClass: "team-member-drag",
+      // chosenClass: "team-member-chosen",
+      // dragClass: "team-member-drag",
       onEnd: event => {
         const { oldIndex, newIndex } = event;
         const reorderedImages = [...images];
@@ -65,7 +63,7 @@ const MyImage = () => {
     setSelectedImages([]);
   };
   const handleAddImage = e => {
-    // console.log("handleAddImage triggered"); 
+    // console.log("handleAddImage triggered");
 
     const file = e.target.files[0];
     if (file) {
@@ -88,8 +86,7 @@ const MyImage = () => {
         <h2 className="text-3xl font-bold flex justify-center items-center gap-2">
           <input
             type="checkbox"
-            size={30}
-            className="   text-white "
+            className={`  w-6 h-6   ${selectedImages.length > 0 ? "visible" : "hidden"} `}
             checked={selectedImages.length > 0}
           />
           <span>
@@ -103,7 +100,7 @@ const MyImage = () => {
           selectedImages={selectedImages}
           onDeleteSelected={handleDeleteSelected}
         />
-      </div>
+      </div> <hr />
       <div id="gallery" className="grid grid-cols-5 gap-2 grid-flow-row  my-11">
         {images.map((image, index) => (
           <div
@@ -116,7 +113,7 @@ const MyImage = () => {
               <input
                 type="checkbox"
                 size={30}
-                className="checkbox  z-10 hover:visible text-white "
+                className="checkbox w-6 h-6 border-b-orange-700  z-10 hover:visible text-white "
                 checked={selectedImages.includes(image.id)}
                 onChange={() => handleImageSelection(image.id)}
               />
@@ -127,9 +124,9 @@ const MyImage = () => {
 
         <label
           htmlFor="image-upload"
-          className="border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+          className="border-2 h-full  border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
         >
-          <div className="flex flex-col items-center justify-center  lg:mt-16">
+          <div className="flex flex-col items-center justify-center  lg:my-16 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="2rem"

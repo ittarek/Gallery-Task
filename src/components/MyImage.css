@@ -27,3 +27,8 @@ label {
   color: #000;
   opacity: 0.5;
 }
+.visibelty{
+  display: block;
+
+  visibility: visible;
+}
